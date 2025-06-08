@@ -15,14 +15,13 @@ public class FileManipulationAppl {
             System.out.println("Wrong number of arguments");
             return;
         }
-
-        //1. read file and get list with text
+        // 1. Read input file
         List<String> manipulatedList = FileUtils.readLines(args[0]);
 
-        //2. made operation with read information
+        // 2. Manipulate data
         ManipulationUtils.caller(args[2], manipulatedList);
 
-        //3. write results to the output file
+        // 3. Write result to the file
         FileUtils.writeLines(args[1], manipulatedList);
 
     }
