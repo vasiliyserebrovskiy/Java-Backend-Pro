@@ -2,6 +2,7 @@ package ait.bank;
 
 import ait.bank.model.Account;
 import ait.bank.service.Transfer;
+import ait.bank.service.Transfer1;
 
 /**
  * @author Vasilii Serebrovskii
@@ -18,6 +19,10 @@ public class BankDeadLockAppl {
 
         Transfer transfer1 = new Transfer(dad,son,900);
         Transfer transfer2 = new Transfer(son,dad,900);
+
+        //Second variant
+//        Transfer1 transfer1 = new Transfer1(dad,son,900);
+//        Transfer1 transfer2 = new Transfer1(son,dad,900);
 
         Thread thread1 = new Thread(transfer1);
         Thread thread2 = new Thread(transfer2);

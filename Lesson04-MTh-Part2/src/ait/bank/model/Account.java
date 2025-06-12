@@ -1,13 +1,17 @@
 package ait.bank.model;
 
 import java.util.Objects;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * @author Vasilii Serebrovskii
  * @version 1.0 (11.06.2025)
  */
 public class Account {
-    private int accNumber;
+    //Lock variable for Account class
+    private final ReentrantLock lock = new ReentrantLock();
+
+    private final int accNumber;
     private int balance;
 
     public Account(int accNumber) {
@@ -20,6 +24,10 @@ public class Account {
 
     public int getBalance() {
         return balance;
+    }
+
+    public ReentrantLock getLock() {
+        return lock;
     }
 
     public void debit(int sum) {
