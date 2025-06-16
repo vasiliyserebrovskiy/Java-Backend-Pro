@@ -25,9 +25,11 @@ public class ClientSocketAppl {
 
 
         try  {
-
+            //create socket
             Socket socket = new Socket(serverHost,port);
+            // start receiver
             new MessageReceiver(socket);
+            //start sender
             new Thread(new MessageSender(socket)).start();
 
         } catch (IOException e) {
