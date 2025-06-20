@@ -27,14 +27,19 @@ public class ChatServerReceiver implements Runnable{
             while (true) {
                 String message = socketReader.readLine();
                 if (message == null) {
-                    System.out.println("Connection: " + socket.getInetAddress() + " : " + socket.getPort() + ", closed");
-                    break;
+                    //System.out.println("Connection: " + socket.getInetAddress() + " : " + socket.getPort() + ", closed");
+                    throw new RuntimeException();
+                   // break;
                 }
                 System.out.println("Server receive: " + message);
                 //Add message to the messageBox
-                messageBox.add(message);
+                messageBox.put(message); // put use await when max achieved.
+                //add just throw exception when max achieved
             }
         } catch (IOException e) {
+            System.out.println("Connection: " + socket.getInetAddress() + " : " + socket.getPort() + ", closed");
+            //throw new RuntimeException(e);
+        } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
     }

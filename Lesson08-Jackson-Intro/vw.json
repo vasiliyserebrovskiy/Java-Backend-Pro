@@ -1,0 +1,9 @@
+{
+  "manufacturer": "VW",
+  "year": 2020,
+  "models": [
+    "Golf",
+    "Polo",
+    "Passat"
+  ]
+}
